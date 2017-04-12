@@ -8,8 +8,7 @@ using System.Threading.Tasks;
 
 namespace SeleniumDesignPapaya_Team.Pages.RegistartionPage
 {
-    public partial class RegistrationPage : BasePage
-
+    public partial class RegistrationPage
     {
 
         //Template for elements
