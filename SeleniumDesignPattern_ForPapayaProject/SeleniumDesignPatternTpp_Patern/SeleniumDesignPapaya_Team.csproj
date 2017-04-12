@@ -54,8 +54,8 @@
     <Compile Include="Pages\RegistartionPage\RegistrationPage.cs" />
     <Compile Include="Pages\RegistartionPage\RegistrationPageAsserter.cs" />
     <Compile Include="Pages\RegistartionPage\RegistrationPageMap.cs" />
-    <Compile Include="Registration_Form_Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestClass.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
