@@ -60,6 +60,7 @@ namespace Team_Papaya.Pages.RegistrationPage
         public IWebElement ErrorMessageForMissingEmail
         {
             get
+            { 
                 return this.Driver.FindElement(By.XPath("//div[.='The Email field is required.']"));
             }
         }
@@ -68,21 +69,39 @@ namespace Team_Papaya.Pages.RegistrationPage
         {
             get
             {
-                return this.Driver.FindElement(By.XPath("/html/body/div[2]/div/div/form/div[1]/ul/li"));
+                return this.Driver.FindElement(By.XPath("//div[.='The Email field is not a valid e-mail address.']"));
             }
         }
-
-        // XPATHS ARE THE SAME FOR EVERY MESSAGE
-        // IF THE MESSAGES ARE MORE THAN ONE THE XPATHS DIFFERS ONLY BY [NUMBER] AT THE END
-        // //html/body/div[2]/div/div/form/div[1]/ul/li[1]
-        // //html/body/div[2]/div/div/form/div[1]/ul/li[2]
-        // //html/body/div[2]/div/div/form/div[1]/ul/li[3]
-        // //html/body/div[2]/div/div/form/div[1]/ul/li[4]
+        
         public IWebElement ErrorMessageForMissingFullName
         {
             get
             { 
-                return this.Driver.FindElement(By.XPath("/html/body/div[2]/div/div/form/div[1]/ul/li"));
+                return this.Driver.FindElement(By.XPath("//div[.='The Full Name field is required.']"));
+            }
+        }
+
+        public IWebElement ErrorMessageForTooLongFullName
+        {
+            get
+            {
+                return this.Driver.FindElement(By.XPath("//div[.='The field Full Name must be a string with a maximum length of 50.']"));
+            }
+        }
+
+        public IWebElement ErrorMessageForMissingPassword
+        {
+            get
+            {
+                return this.Driver.FindElement(By.XPath("//div[.='The Password field is required.']"));
+            }
+        }
+
+        public IWebElement ErrorMessageForUnmatchedPasswords
+        {
+            get
+            {
+                return this.Driver.FindElement(By.XPath("//div[.='The password and confirmation password do not match.']"));
             }
         }
     }
