@@ -60,8 +60,7 @@ namespace Team_Papaya.Pages.RegistrationPage
         public IWebElement ErrorMessageForMissingEmail
         {
             get
-            {
-                return this.Driver.FindElement(By.XPath("/html/body/div[2]/div/div/form/div[1]/ul/li"));
+                return this.Driver.FindElement(By.XPath("//div[.='The Email field is required.']"));
             }
         }
 

@@ -6,7 +6,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Team_Papaya.Models;
 using Team_Papaya.Pages.HomePage;
+using Team_Papaya.Pages.RegistrationPage;
 
 namespace Team_Papaya
 {
@@ -67,6 +69,19 @@ namespace Team_Papaya
             homePage.NavigateTo();
 
             homePage.AssertHomePageLoginButtonIsDisplayed("Log in");
+        }
+
+        // TEST REGISTRATION PAGE
+        [Test]
+        public void RegisterWithMissingEmail()
+        {
+            var registrationPage = new RegistrationPage(driver);
+            var user = new RegisterUser("", "Test", "1234", "1234");
+
+            registrationPage.NavigateTo();
+            registrationPage.FillRegistrationForm(user);
+
+            registrationPage.AssertMissingEmailMessage("The Email field is required.");
         }
     }
 }

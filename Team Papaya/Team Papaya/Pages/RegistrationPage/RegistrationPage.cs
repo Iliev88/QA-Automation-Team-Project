@@ -25,6 +25,7 @@ namespace Team_Papaya.Pages.RegistrationPage
             Type(FullName, user.FullName);
             Type(Password, user.Password);
             Type(ConfirmPassword, user.ConfirmPassword);
+            RegisterButton.Click();
         }
 
         private void Type(IWebElement element, string text)
