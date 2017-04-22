@@ -62,7 +62,7 @@ namespace Team_Papaya
         }
 
         [Test]
-        public void HomePageLoginrButtonTest()
+        public void HomePageLoginButtonTest()
         {
             var homePage = new HomePage(driver);
 
