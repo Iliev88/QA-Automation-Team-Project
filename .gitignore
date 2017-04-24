@@ -246,3 +246,4 @@ paket-files/
 # JetBrains Rider
 .idea/
 *.sln.iml
+/Team Papaya/Blog/App_Data/aspnet-Blog-20161128123155_log.ldf
