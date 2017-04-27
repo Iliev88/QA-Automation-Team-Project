@@ -20,7 +20,9 @@ namespace Team_Papaya
         [SetUp]
         public void Initialize()
         {
-            driver = new ChromeDriver();
+            driver = BrowserHost.Instance.Application.Browser;
+
+            driver.Manage().Window.Maximize();
         }
 
         [TearDown]
