@@ -15,7 +15,7 @@ namespace Team_Papaya
 
         static BrowserHost()
         {
-            Instance.Run("Blog", 9999);
+            Instance.Run("Blog", 9998);
         }
 
         //--for TEAM CITY port must be other!!!--
