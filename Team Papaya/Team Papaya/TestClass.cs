@@ -28,7 +28,7 @@ namespace Team_Papaya
         [TearDown]
         public void CleanUp()
         {
-            driver.Quit();
+            //driver.Quit();
         }
         
         // SOME ELEMENTARY TESTS FOR HOMEPAGE
