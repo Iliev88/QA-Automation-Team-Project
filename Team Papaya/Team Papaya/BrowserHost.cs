@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OpenQA.Selenium.Chrome;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,13 +16,13 @@ namespace Team_Papaya
 
         static BrowserHost()
         {
-            Instance.Run("Blog", 9999);
+            Instance.Run("Blog", 9999, w => w.WithRemoteWebDriver(() => new ChromeDriver()));
         }
 
         //--for TEAM CITY port must be other!!!--
 
         //--for CHROME--
-        // Instance.Run("Blog", 9999, w => w.WithRemoteWebDriver(BrowserFactory.Chrome));
+        // Instance.Run("Blog", 9999, w => w.WithRemoteWebDriver(() => new ChromeDriver()));
 
     }
 }
