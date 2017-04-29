@@ -13,10 +13,15 @@ namespace Team_Papaya
         public static readonly SelenoHost Instance = new SelenoHost();
         public static readonly string RootUrl=(@"http://localhost:9999/Article/List");
 
-         static BrowserHost()
+        static BrowserHost()
         {
             Instance.Run("Blog", 9999);
         }
+
+        //--for TEAM CITY port must be other!!!--
+
+        //--for CHROME--
+        // Instance.Run("Blog", 9999, w => w.WithRemoteWebDriver(BrowserFactory.Chrome));
 
     }
 }
