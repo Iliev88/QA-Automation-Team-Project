@@ -85,5 +85,17 @@ namespace Team_Papaya
 
             registrationPage.AssertMissingEmailMessage("The Email field is required.");
         }
+
+        [Test]
+        public void RegisterWithMissingEmailSecond()
+        {
+            var registrationPage = new RegistrationPage(driver);
+            var user = new RegisterUser("", "TestTest", "1234", "1234");
+
+            registrationPage.NavigateTo();
+            registrationPage.FillRegistrationForm(user);
+
+            registrationPage.AssertMissingEmailMessage("The Email field is required.");
+        }
     }
 }
