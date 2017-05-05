@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,7 @@ namespace Team_Papaya.Pages.RegistrationPage
         {
             get
             {
+                this.Wait.Until(ExpectedConditions.ElementExists(By.Id("Email")));
                 return this.Driver.FindElement(By.Id("Email"));
             }
         }
@@ -60,7 +62,7 @@ namespace Team_Papaya.Pages.RegistrationPage
         public IWebElement ErrorMessageForMissingEmail
         {
             get
-            { 
+            {
                 return this.Driver.FindElement(By.XPath("//div[.='The Email field is required.']"));
             }
         }
@@ -72,11 +74,11 @@ namespace Team_Papaya.Pages.RegistrationPage
                 return this.Driver.FindElement(By.XPath("//div[.='The Email field is not a valid e-mail address.']"));
             }
         }
-        
+
         public IWebElement ErrorMessageForMissingFullName
         {
             get
-            { 
+            {
                 return this.Driver.FindElement(By.XPath("//div[.='The Full Name field is required.']"));
             }
         }
