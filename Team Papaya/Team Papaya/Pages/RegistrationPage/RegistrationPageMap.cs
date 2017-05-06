@@ -59,6 +59,14 @@ namespace Team_Papaya.Pages.RegistrationPage
             }
         }
 
+        public IWebElement LogOff
+        {
+            get
+            {
+                return this.Driver.FindElement(By.Id("logoutForm"));
+            }
+        }
+
         public IWebElement ErrorMessageForMissingEmail
         {
             get
@@ -104,6 +112,22 @@ namespace Team_Papaya.Pages.RegistrationPage
             get
             {
                 return this.Driver.FindElement(By.XPath("//div[.='The password and confirmation password do not match.']"));
+            }
+        }
+
+        public IWebElement ErrorMessageForTooLongPassword
+        {
+            get
+            {
+                return this.Driver.FindElement(By.XPath("//div[.='The field Password must be a string with a maximum length of 50.']"));
+            }
+        }
+
+        public IWebElement ErrorMessageForEmptyFormFields
+        {
+            get
+            {
+                return this.Driver.FindElement(By.XPath("/html/body/div[2]/div/div/form/div[1]/ul"));
             }
         }
     }

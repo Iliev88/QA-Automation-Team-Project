@@ -75,6 +75,126 @@ namespace Team_Papaya
 
         // TEST REGISTRATION PAGE
         [Test]
+        public void RP_TC1_RegistrationWithValidData()
+        {
+            var registrationPage = new RegistrationPage(driver);
+            var user = new RegisterUser("test" + new Random().Next(100000, 100000000) + "@abv.bg", "Test", "1234", "1234");
+
+            registrationPage.NavigateTo();
+            registrationPage.FillRegistrationForm(user);
+
+            registrationPage.AssertRegisterWithValidData();
+        }
+
+        [Test]
+        public void RP_TC2_RegistrationWithInvalidEmail()
+        {
+            var registrationPage = new RegistrationPage(driver);
+            var user = new RegisterUser("test@.abv.bg", "Test", "1234", "1234");
+
+            registrationPage.NavigateTo();
+            registrationPage.FillRegistrationForm(user);
+
+            registrationPage.AssertInvalidEmailMessage("The Email field is not a valid e-mail address.");
+        }
+
+        [Test]
+        public void RP_TC4_RegistrationWithEmptyEmailField()
+        {
+            var registrationPage = new RegistrationPage(driver);
+            var user = new RegisterUser("", "Test", "1234", "1234");
+
+            registrationPage.NavigateTo();
+            registrationPage.FillRegistrationForm(user);
+
+            registrationPage.AssertMissingEmailMessage("The Email field is required.");
+        }
+
+        [Test]
+        public void RP_TC6_RegistrationWithTooLongFullName()
+        {
+            var registrationPage = new RegistrationPage(driver);
+            var user = new RegisterUser("test@abv.bg", "TestsTestsTestsTestsTestsTestsTestsTestsTestsTests1", "1234", "1234");
+
+            registrationPage.NavigateTo();
+            registrationPage.FillRegistrationForm(user);
+
+            registrationPage.AssertTooLongFullNameMessage("The field Full Name must be a string with a maximum length of 50.");
+        }
+
+        [Test]
+        public void RP_TC8_RegistrationWithEmptyFullNameField()
+        {
+            var registrationPage = new RegistrationPage(driver);
+            var user = new RegisterUser("test@abv.bg", "", "1234", "1234");
+
+            registrationPage.NavigateTo();
+            registrationPage.FillRegistrationForm(user);
+
+            registrationPage.AssertMissingFullNameMessage("The Full Name field is required.");
+        }
+
+        [Test]
+        public void RP_TC9_RegistrationWithDuplicateFullName()
+        {
+            var registrationPage = new RegistrationPage(driver);
+            var user = new RegisterUser("test" + new Random().Next(100000, 100000000) + "@abv.bg", "Test", "1234", "1234");
+
+            registrationPage.NavigateTo();
+            registrationPage.FillRegistrationForm(user);
+
+            registrationPage.AssertRegisterWithValidData();
+        }
+
+        [Test]
+        public void RP_TC11_RegistrationWithTooLongPassword()
+        {
+            var registrationPage = new RegistrationPage(driver);
+            var user = new RegisterUser("test@abv.bg", "Test", "123456789012345678901234567890123456789012345678901", "123456789012345678901234567890123456789012345678901");
+
+            registrationPage.NavigateTo();
+            registrationPage.FillRegistrationForm(user);
+
+            registrationPage.AssertTooLongPasswordMessage("The field Password must be a string with a maximum length of 50.");
+        }
+
+        [Test]
+        public void RP_TC12_RegistrationWithMissingPassword()
+        {
+            var registrationPage = new RegistrationPage(driver);
+            var user = new RegisterUser("test@abv.bg", "Test", "", "");
+
+            registrationPage.NavigateTo();
+            registrationPage.FillRegistrationForm(user);
+
+            registrationPage.AssertMissingPasswordMessage("The Password field is required.");
+        }
+
+        [Test]
+        public void RP_TC14_RegistrationWithDifferentPasswordAndConfirmPassword()
+        {
+            var registrationPage = new RegistrationPage(driver);
+            var user = new RegisterUser("test@abv.bg", "Test", "4321", "1234");
+
+            registrationPage.NavigateTo();
+            registrationPage.FillRegistrationForm(user);
+
+            registrationPage.AssertUnmatchedPasswordMessage("The password and confirmation password do not match.");
+        }
+
+        [Test]
+        public void RP_TC14_RegistrationWithEmptyForm()
+        {
+            var registrationPage = new RegistrationPage(driver);
+            var user = new RegisterUser("", "", "", "");
+
+            registrationPage.NavigateTo();
+            registrationPage.FillRegistrationForm(user);
+
+            registrationPage.AssertEmptyFormFields("The Email field is required.\r\nThe Full Name field is required.\r\nThe Password field is required.");
+        }
+
+        [Test]
         public void RegisterWithMissingEmail()
         {
             var registrationPage = new RegistrationPage(driver);

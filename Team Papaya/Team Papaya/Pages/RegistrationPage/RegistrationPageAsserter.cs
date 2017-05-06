@@ -9,6 +9,11 @@ namespace Team_Papaya.Pages.RegistrationPage
 {
     public static class RegistrationPageAsserter
     {
+        public static void AssertRegisterWithValidData(this RegistrationPage page)
+        {
+            Assert.IsTrue(page.LogOff.Displayed);
+        }
+
         public static void AssertMissingEmailMessage(this RegistrationPage page, string text)
         {
             Assert.IsTrue(page.ErrorMessageForMissingEmail.Displayed);
@@ -43,6 +48,18 @@ namespace Team_Papaya.Pages.RegistrationPage
         {
             Assert.IsTrue(page.ErrorMessageForUnmatchedPasswords.Displayed);
             Assert.AreEqual(text, page.ErrorMessageForUnmatchedPasswords.Text);
+        }
+
+        public static void AssertTooLongPasswordMessage(this RegistrationPage page, string text)
+        {
+            Assert.IsTrue(page.ErrorMessageForTooLongPassword.Displayed);
+            Assert.AreEqual(text, page.ErrorMessageForTooLongPassword.Text);
+        }
+
+        public static void AssertEmptyFormFields(this RegistrationPage page, string text)
+        {
+            Assert.IsTrue(page.ErrorMessageForEmptyFormFields.Displayed);
+            Assert.AreEqual(text, page.ErrorMessageForEmptyFormFields.Text);
         }
     }
 }
