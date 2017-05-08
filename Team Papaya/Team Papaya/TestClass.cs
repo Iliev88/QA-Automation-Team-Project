@@ -28,12 +28,12 @@ namespace Team_Papaya
         [TearDown]
         public void CleanUp()
         {
+            // This is for TeamCity to build...
             //driver.Quit();
         }
         
-        // SOME ELEMENTARY TESTS FOR HOMEPAGE
-        // MUST THINK HOW EVERYONE COULD NAVIGATE TO THE BLOG
         [Test]
+        [Property("HomePage Tests", 1)]
         public void HomePageHeaderTest()
         {
             var homePage = new HomePage(driver);
@@ -44,6 +44,7 @@ namespace Team_Papaya
         }
 
         [Test]
+        [Property("HomePage Tests", 1)]
         public void HomePageFooterTest()
         {
             var homePage = new HomePage(driver);
@@ -54,6 +55,7 @@ namespace Team_Papaya
         }
 
         [Test]
+        [Property("HomePage Tests", 1)]
         public void HomePageRegisterButtonTest()
         {
             var homePage = new HomePage(driver);
@@ -64,6 +66,7 @@ namespace Team_Papaya
         }
 
         [Test]
+        [Property("HomePage Tests", 1)]
         public void HomePageLoginButtonTest()
         {
             var homePage = new HomePage(driver);
@@ -75,6 +78,7 @@ namespace Team_Papaya
 
         // TEST REGISTRATION PAGE
         [Test]
+        [Property("RegistrationPage Tests", 1)]
         public void RP_TC1_RegistrationWithValidData()
         {
             var registrationPage = new RegistrationPage(driver);
@@ -87,6 +91,7 @@ namespace Team_Papaya
         }
 
         [Test]
+        [Property("RegistrationPage Tests", 1)]
         public void RP_TC2_RegistrationWithInvalidEmail()
         {
             var registrationPage = new RegistrationPage(driver);
@@ -99,6 +104,7 @@ namespace Team_Papaya
         }
 
         [Test]
+        [Property("RegistrationPage Tests", 1)]
         public void RP_TC4_RegistrationWithEmptyEmailField()
         {
             var registrationPage = new RegistrationPage(driver);
@@ -111,6 +117,7 @@ namespace Team_Papaya
         }
 
         [Test]
+        [Property("RegistrationPage Tests", 1)]
         public void RP_TC6_RegistrationWithTooLongFullName()
         {
             var registrationPage = new RegistrationPage(driver);
@@ -123,6 +130,7 @@ namespace Team_Papaya
         }
 
         [Test]
+        [Property("RegistrationPage Tests", 1)]
         public void RP_TC8_RegistrationWithEmptyFullNameField()
         {
             var registrationPage = new RegistrationPage(driver);
@@ -135,6 +143,7 @@ namespace Team_Papaya
         }
 
         [Test]
+        [Property("RegistrationPage Tests", 1)]
         public void RP_TC9_RegistrationWithDuplicateFullName()
         {
             var registrationPage = new RegistrationPage(driver);
@@ -147,6 +156,7 @@ namespace Team_Papaya
         }
 
         [Test]
+        [Property("RegistrationPage Tests", 1)]
         public void RP_TC11_RegistrationWithTooLongPassword()
         {
             var registrationPage = new RegistrationPage(driver);
@@ -159,6 +169,7 @@ namespace Team_Papaya
         }
 
         [Test]
+        [Property("RegistrationPage Tests", 1)]
         public void RP_TC12_RegistrationWithMissingPassword()
         {
             var registrationPage = new RegistrationPage(driver);
@@ -171,6 +182,7 @@ namespace Team_Papaya
         }
 
         [Test]
+        [Property("RegistrationPage Tests", 1)]
         public void RP_TC14_RegistrationWithDifferentPasswordAndConfirmPassword()
         {
             var registrationPage = new RegistrationPage(driver);
@@ -183,7 +195,8 @@ namespace Team_Papaya
         }
 
         [Test]
-        public void RP_TC14_RegistrationWithEmptyForm()
+        [Property("RegistrationPage Tests", 1)]
+        public void RP_TC15_RegistrationWithEmptyForm()
         {
             var registrationPage = new RegistrationPage(driver);
             var user = new RegisterUser("", "", "", "");
@@ -195,6 +208,7 @@ namespace Team_Papaya
         }
 
         [Test]
+        [Property("Just for checking", 1)]
         public void RegisterWithMissingEmail()
         {
             var registrationPage = new RegistrationPage(driver);
@@ -207,6 +221,7 @@ namespace Team_Papaya
         }
 
         [Test]
+        [Property("Just for checking", 1)]
         public void RegisterWithMissingEmailSecond()
         {
             var registrationPage = new RegistrationPage(driver);
