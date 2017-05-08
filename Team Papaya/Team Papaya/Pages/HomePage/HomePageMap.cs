@@ -21,7 +21,7 @@ namespace Team_Papaya.Pages.HomePage
         {
             get
             {
-                return this.Driver.FindElement(By.ClassName("pull-right"));
+                return this.Driver.FindElement(By.XPath("/html/body/div[2]/footer/p"));
             }
         }
 
