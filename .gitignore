@@ -231,7 +231,4 @@ paket-files/
 # FAKE - F# Make
 .fake/
 
-# JetBrains Rider
-.idea/
-*.sln.iml
-/Team Papaya/Blog/App_Data/aspnet-Blog-20161128123155_log.ldf
+ 
