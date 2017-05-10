@@ -61,5 +61,9 @@ namespace Team_Papaya.Pages.RegistrationPage
             Assert.IsTrue(page.ErrorMessageForEmptyFormFields.Displayed);
             Assert.AreEqual(text, page.ErrorMessageForEmptyFormFields.Text);
         }
+        public static void AssertRegistrationPageRegisterHeaderIsDisplayed(this RegistrationPage page, string text)
+        {
+            Assert.AreEqual(text, page.RegisterHeader.Text);
+        }
     }
 }

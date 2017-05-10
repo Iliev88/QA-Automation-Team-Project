@@ -79,6 +79,16 @@ namespace Team_Papaya
         // TEST REGISTRATION PAGE
         [Test]
         [Property("RegistrationPage Tests", 1)]
+        public void RP_TC0_RegisterButtonTest()
+        {
+            var registrationPage = new RegistrationPage(driver);
+
+            registrationPage.NavigateTo();
+
+            registrationPage.AssertRegistrationPageRegisterHeaderIsDisplayed("Register");
+        }
+        [Test]
+        [Property("RegistrationPage Tests", 1)]
         public void RP_TC1_RegistrationWithValidData()
         {
             var registrationPage = new RegistrationPage(driver);
@@ -206,6 +216,7 @@ namespace Team_Papaya
 
             registrationPage.AssertEmptyFormFields("The Email field is required.\r\nThe Full Name field is required.\r\nThe Password field is required.");
         }
+
 
         [Test]
         [Property("Just for checking", 1)]
