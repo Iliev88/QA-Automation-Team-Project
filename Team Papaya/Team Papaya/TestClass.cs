@@ -116,6 +116,19 @@ namespace Team_Papaya
 
             registrationPage.AssertInvalidEmailMessage("The Email field is not a valid e-mail address.");
         }
+        // FAIL
+        [Test]
+        [Property("RegistrationPage Tests", 1)]
+        public void RP_TC3_RegistrationWithDuplicatedEmail()
+        {
+            var registrationPage = new RegistrationPage(driver);
+            var user = new RegisterUser("test@abv.bg", "Test", "123456", "123456");
+
+            registrationPage.NavigateTo();
+            registrationPage.FillRegistrationForm(user);
+
+            registrationPage.AssertInvalidEmailMessage("This email is already taken");
+        }
 
         [Test]
         [Property("RegistrationPage Tests", 1)]
@@ -128,6 +141,19 @@ namespace Team_Papaya
             registrationPage.FillRegistrationForm(user);
 
             registrationPage.AssertMissingEmailMessage("The Email field is required.");
+        }
+
+        [Test]
+        [Property("RegistrationPage Tests", 1)]
+        public void RP_TC5_RegistrationWithNameLessThanThreeChars()
+        {
+            var registrationPage = new RegistrationPage(driver);
+            var user = new RegisterUser("test" + DateTime.Now.Millisecond + "@test.com", "Iv", "123456", "123456");
+
+            registrationPage.NavigateTo();
+            registrationPage.FillRegistrationForm(user);
+
+            registrationPage.AssertTooLongFullNameMessage("The name must be at least 3 symbols");
         }
 
         [Test]
@@ -145,7 +171,20 @@ namespace Team_Papaya
 
         [Test]
         [Property("RegistrationPage Tests", 1)]
-        public void RP_TC8_RegistrationWithEmptyFullNameField()
+        public void RP_TC7_RegistrationWithNameLessThanThreeChars()
+        {
+            var registrationPage = new RegistrationPage(driver);
+            var user = new RegisterUser("test" + DateTime.Now.Millisecond + "@test.com", "1van Ivanov", "123456", "123456");
+
+            registrationPage.NavigateTo();
+            registrationPage.FillRegistrationForm(user);
+
+            registrationPage.AssertTooLongFullNameMessage("The field Full Name must start with small or capital letter.");
+        }
+
+        [Test]
+        [Property("RegistrationPage Tests", 1)]
+        public void RP_TC8_RegistrationWithNameStartingWithNumber()
         {
             var registrationPage = new RegistrationPage(driver);
             var user = new RegisterUser("test@abv.bg", "", "123456", "123456");
@@ -167,6 +206,20 @@ namespace Team_Papaya
             registrationPage.FillRegistrationForm(user);
 
             registrationPage.AssertRegisterWithValidData();
+        }
+
+        [Test]
+        [Property("RegistrationPage Tests", 1)]
+        public void RP_TC10_RegistrationWithShrotPassword()
+        {
+            var registrationPage = new RegistrationPage(driver);
+            var user = new RegisterUser("test" + DateTime.Now.Millisecond + "@test.com", "Ivan Ivanov", "12345", "12345");
+
+
+            registrationPage.NavigateTo();
+            registrationPage.FillRegistrationForm(user);
+
+            registrationPage.AssertTooLongPasswordMessage("Password must be at least 6 symbols");
         }
 
         [Test]
@@ -194,6 +247,21 @@ namespace Team_Papaya
 
             registrationPage.AssertMissingPasswordMessage("The Password field is required.");
         }
+
+        [Test]
+        [Property("RegistrationPage Tests", 1)]
+        public void RP_TC13_RegistrationWithMissingPasswordANdConfirmPassword()
+        {
+            var registrationPage = new RegistrationPage(driver);
+            var user = new RegisterUser("test" + DateTime.Now.Millisecond + "@test.com", "Test", "", "");
+
+            registrationPage.NavigateTo();
+            registrationPage.FillRegistrationForm(user);
+
+            registrationPage.AssertMissingPasswordMessage("The Password field is required.");
+            //registrationPage.AssertUnmatchedPasswordMessage("The password and confirmation password do not match.");
+        }
+
 
         [Test]
         [Property("RegistrationPage Tests", 1)]
