@@ -12,7 +12,7 @@ namespace Team_Papaya
     public static class BrowserHost
     {
         public static readonly SelenoHost Instance = new SelenoHost();
-        public static readonly string RootUrl=(@"http://localhost:60064/Article/List");
+        public static readonly string RootUrl= (@"http://localhost:60064/Article/List");
 
         static BrowserHost()
         {

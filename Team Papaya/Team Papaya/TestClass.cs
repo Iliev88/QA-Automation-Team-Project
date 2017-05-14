@@ -243,5 +243,18 @@ namespace Team_Papaya
 
             registrationPage.AssertMissingEmailMessage("The Email field is required.");
         }
+
+        [Test]
+        [Property("Just for checking", 1)]
+        public void RegisterWithMissingEmailThird()
+        {
+            var registrationPage = new RegistrationPage(driver);
+            var user = new RegisterUser("Test GitHub for Desctop", "TestTC", "testTC", "testTC");
+
+            registrationPage.NavigateTo();
+            registrationPage.FillRegistrationForm(user);
+
+            registrationPage.AssertInvalidEmailMessage("The Email field is not a valid e-mail address.");
+        }
     }
 }
