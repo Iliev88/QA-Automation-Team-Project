@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,6 +30,7 @@ namespace Team_Papaya.Pages.HomePage
         {
             get
             {
+                this.Wait.Until(ExpectedConditions.ElementExists(By.Id("registerLink")));
                 return this.Driver.FindElement(By.Id("registerLink"));
             }
         }
@@ -37,6 +39,7 @@ namespace Team_Papaya.Pages.HomePage
         {
             get
             {
+                this.Wait.Until(ExpectedConditions.ElementExists(By.Id("loginLink")));
                 return this.Driver.FindElement(By.Id("loginLink"));
             }
         }
