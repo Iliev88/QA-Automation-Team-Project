@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Team_Papaya.Models;
+using Team_Papaya.Pages.CreateArticlePage;
 using Team_Papaya.Pages.HomePage;
 using Team_Papaya.Pages.RegistrationPage;
 
@@ -87,6 +88,7 @@ namespace Team_Papaya
 
             registrationPage.AssertRegistrationPageRegisterHeaderIsDisplayed("Register");
         }
+
         [Test]
         [Property("RegistrationPage Tests", 1)]
         public void RP_TC1_RegistrationWithValidData()
@@ -255,6 +257,28 @@ namespace Team_Papaya
             registrationPage.FillRegistrationForm(user);
 
             registrationPage.AssertInvalidEmailMessage("The Email field is not a valid e-mail address.");
+        }
+
+        // TEST CREATE ARTICLE PAGE
+        [Test]
+        [Property("CreateArticlePage Tests", 1)]
+        public void CAP_TC1_CreateArticleWithValidData()
+        {
+            var registrationPage = new RegistrationPage(driver);
+            var user = new RegisterUser("test" + new Random().Next(100000, 100000000) + "@abv.bg", "Test", "1234", "1234");
+
+            registrationPage.NavigateTo();
+            registrationPage.FillRegistrationForm(user);
+
+            registrationPage.AssertRegisterWithValidData();
+
+            var createArticlePage = new CreateArticlePage(driver);
+            var articleContent = new CreateArticleContent("Test Automation is the key", "Traditional quality assurance has become a bottleneck in the development process and the advancement of test automation. Innovative development teams ...");
+
+            createArticlePage.NavigateTo();
+            createArticlePage.FillRegistrationForm(articleContent);
+
+            createArticlePage.AssertRegisterWithValidData();
         }
     }
 }
