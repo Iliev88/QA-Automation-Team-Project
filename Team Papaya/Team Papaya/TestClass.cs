@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using Team_Papaya.Models;
 using Team_Papaya.Pages.CreateArticlePage;
 using Team_Papaya.Pages.HomePage;
+using Team_Papaya.Pages.LoginPage;
 using Team_Papaya.Pages.RegistrationPage;
 
 namespace Team_Papaya
@@ -94,7 +95,8 @@ namespace Team_Papaya
         public void RP_TC1_RegistrationWithValidData()
         {
             var registrationPage = new RegistrationPage(driver);
-            var user = new RegisterUser("test" + new Random().Next(100000, 100000000) + "@abv.bg", "Test", "1234", "1234");
+            var user = new RegisterUser("test@abv.bg", "Test", "123456", "123456");
+            //var user = new RegisterUser("test" + new Random().Next(100000, 100000000) + "@abv.bg", "Test", "1234", "1234");
 
             registrationPage.NavigateTo();
             registrationPage.FillRegistrationForm(user);
@@ -107,7 +109,7 @@ namespace Team_Papaya
         public void RP_TC2_RegistrationWithInvalidEmail()
         {
             var registrationPage = new RegistrationPage(driver);
-            var user = new RegisterUser("test@.abv.bg", "Test", "1234", "1234");
+            var user = new RegisterUser("test@.abv.bg", "Test", "123456", "123456");
 
             registrationPage.NavigateTo();
             registrationPage.FillRegistrationForm(user);
@@ -120,7 +122,7 @@ namespace Team_Papaya
         public void RP_TC4_RegistrationWithEmptyEmailField()
         {
             var registrationPage = new RegistrationPage(driver);
-            var user = new RegisterUser("", "Test", "1234", "1234");
+            var user = new RegisterUser("", "Test", "123456", "123456");
 
             registrationPage.NavigateTo();
             registrationPage.FillRegistrationForm(user);
@@ -133,7 +135,7 @@ namespace Team_Papaya
         public void RP_TC6_RegistrationWithTooLongFullName()
         {
             var registrationPage = new RegistrationPage(driver);
-            var user = new RegisterUser("test@abv.bg", "TestsTestsTestsTestsTestsTestsTestsTestsTestsTests1", "1234", "1234");
+            var user = new RegisterUser("test@abv.bg", "TestsTestsTestsTestsTestsTestsTestsTestsTestsTests1", "123456", "123456");
 
             registrationPage.NavigateTo();
             registrationPage.FillRegistrationForm(user);
@@ -146,7 +148,7 @@ namespace Team_Papaya
         public void RP_TC8_RegistrationWithEmptyFullNameField()
         {
             var registrationPage = new RegistrationPage(driver);
-            var user = new RegisterUser("test@abv.bg", "", "1234", "1234");
+            var user = new RegisterUser("test@abv.bg", "", "123456", "123456");
 
             registrationPage.NavigateTo();
             registrationPage.FillRegistrationForm(user);
@@ -159,7 +161,7 @@ namespace Team_Papaya
         public void RP_TC9_RegistrationWithDuplicateFullName()
         {
             var registrationPage = new RegistrationPage(driver);
-            var user = new RegisterUser("test" + new Random().Next(100000, 100000000) + "@abv.bg", "Test", "1234", "1234");
+            var user = new RegisterUser("test" + new Random().Next(100000, 100000000) + "@abv.bg", "Test", "123456", "123456");
 
             registrationPage.NavigateTo();
             registrationPage.FillRegistrationForm(user);
@@ -198,7 +200,7 @@ namespace Team_Papaya
         public void RP_TC14_RegistrationWithDifferentPasswordAndConfirmPassword()
         {
             var registrationPage = new RegistrationPage(driver);
-            var user = new RegisterUser("test@abv.bg", "Test", "4321", "1234");
+            var user = new RegisterUser("test@abv.bg", "Test", "654321", "123456");
 
             registrationPage.NavigateTo();
             registrationPage.FillRegistrationForm(user);
@@ -225,7 +227,7 @@ namespace Team_Papaya
         public void RegisterWithMissingEmail()
         {
             var registrationPage = new RegistrationPage(driver);
-            var user = new RegisterUser("", "Test", "1234", "1234");
+            var user = new RegisterUser("", "Test", "123456", "123456");
 
             registrationPage.NavigateTo();
             registrationPage.FillRegistrationForm(user);
@@ -238,7 +240,7 @@ namespace Team_Papaya
         public void RegisterWithMissingEmailSecond()
         {
             var registrationPage = new RegistrationPage(driver);
-            var user = new RegisterUser("", "TestTest", "1234", "1234");
+            var user = new RegisterUser("", "TestTest", "123456", "123456");
 
             registrationPage.NavigateTo();
             registrationPage.FillRegistrationForm(user);
@@ -259,18 +261,31 @@ namespace Team_Papaya
             registrationPage.AssertInvalidEmailMessage("The Email field is not a valid e-mail address.");
         }
 
+
+        // TEST LOGIN PAGE
+        [Test]
+        [Property("Login Tests", 1)]
+        public void LP_TC1_LoginWithValidData()
+        {
+            var loginPage = new LoginPage(driver);
+            var user = new LoginUser("test@abv.bg", "1234");
+
+            loginPage.NavigateTo();
+            loginPage.FillRegistrationForm(user);
+
+            loginPage.AssertRegisterWithValidData();
+        }
+
         // TEST CREATE ARTICLE PAGE
         [Test]
         [Property("CreateArticlePage Tests", 1)]
         public void CAP_TC1_CreateArticleWithValidData()
         {
-            var registrationPage = new RegistrationPage(driver);
-            var user = new RegisterUser("test" + new Random().Next(100000, 100000000) + "@abv.bg", "Test", "1234", "1234");
+            var loginPage = new LoginPage(driver);
+            var user = new LoginUser("test@abv.bg", "1234");
 
-            registrationPage.NavigateTo();
-            registrationPage.FillRegistrationForm(user);
-
-            registrationPage.AssertRegisterWithValidData();
+            loginPage.NavigateTo();
+            loginPage.FillRegistrationForm(user);
 
             var createArticlePage = new CreateArticlePage(driver);
             var articleContent = new CreateArticleContent("Test Automation is the key", "Traditional quality assurance has become a bottleneck in the development process and the advancement of test automation. Innovative development teams ...");
