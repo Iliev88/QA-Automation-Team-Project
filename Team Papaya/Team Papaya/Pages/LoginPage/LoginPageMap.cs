@@ -43,5 +43,45 @@ namespace Team_Papaya.Pages.LoginPage
                 return this.Driver.FindElement(By.Id("logoutForm"));
             }
         }
+
+        public IWebElement ErrorMessageForMissingEmail
+        {
+            get
+            {
+                return this.Driver.FindElement(By.XPath("/html/body/div[2]/div/div/form/div[1]/div/span/span"));
+            }
+        }
+
+        public IWebElement ErrorMessageForInvalidEmail
+        {
+            get
+            {
+                return this.Driver.FindElement(By.XPath("/html/body/div[2]/div/div/form/div[1]/div/span/span"));
+            }
+        }
+
+        public IWebElement ErrorMessageForNonRegisteredEmail
+        {
+            get
+            {
+                return this.Driver.FindElement(By.XPath("/html/body/div[2]/div/div/form/div[1]/ul/li"));
+            }
+        }
+
+        public IWebElement ErrorMessageForWrongPassword
+        {
+            get
+            {
+                return this.Driver.FindElement(By.XPath("/html/body/div[2]/div/div/form/div[1]/ul/li"));
+            }
+        }
+
+        public IWebElement ErrorMessageForMissingPassword
+        {
+            get
+            {
+                return this.Driver.FindElement(By.XPath("/html/body/div[2]/div/div/form/div[2]/div/span/span"));
+            }
+        }
     }
 }

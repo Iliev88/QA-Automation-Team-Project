@@ -116,6 +116,7 @@ namespace Team_Papaya
 
             registrationPage.AssertInvalidEmailMessage("The Email field is not a valid e-mail address.");
         }
+
         // FAIL
         [Test]
         [Property("RegistrationPage Tests", 1)]
@@ -332,7 +333,7 @@ namespace Team_Papaya
 
         // TEST LOGIN PAGE
         [Test]
-        [Property("Login Tests", 1)]
+        [Property("LoginPage Tests", 1)]
         public void LP_TC1_LoginWithValidData()
         {
             var loginPage = new LoginPage(driver);
@@ -341,7 +342,60 @@ namespace Team_Papaya
             loginPage.NavigateTo();
             loginPage.FillRegistrationForm(user);
 
-            loginPage.AssertRegisterWithValidData();
+            loginPage.AssertLoginWithValidData();
+        }
+
+        [Test]
+        [Property("LoginPage Tests", 1)]
+        public void LP_TC2_LoginWithInvalidEmailFormat()
+        {
+            var loginPage = new LoginPage(driver);
+            var user = new LoginUser("test@", "1234");
+
+            loginPage.NavigateTo();
+            loginPage.FillRegistrationForm(user);
+
+            loginPage.AssertInvalidEmailMessage("The Email field is not a valid e-mail address.");
+        }
+
+        [Test]
+        [Property("LoginPage Tests", 1)]
+        public void LP_TC3_LoginWithNotRegisteredEmail()
+        {
+            var loginPage = new LoginPage(driver);
+            var user = new LoginUser("NoReg@noreg.com", "1234");
+
+            loginPage.NavigateTo();
+            loginPage.FillRegistrationForm(user);
+
+            loginPage.AssertNotRegisteredEmailMessage("Invalid login attempt.");
+        }
+
+        [Test]
+        [Property("LoginPage Tests", 1)]
+        public void LP_TC4_LoginWithRegisteredEmailAndInvalidPassword()
+        {
+            var loginPage = new LoginPage(driver);
+            var user = new LoginUser("test@abv.bg", "123456");
+
+            loginPage.NavigateTo();
+            loginPage.FillRegistrationForm(user);
+
+            loginPage.AssertWrongPasswordMessage("Invalid login attempt.");
+        }
+
+        [Test]
+        [Property("LoginPage Tests", 1)]
+        public void LP_TC5_LoginWithoutEmailAndPassword()
+        {
+            var loginPage = new LoginPage(driver);
+            var user = new LoginUser("", "");
+
+            loginPage.NavigateTo();
+            loginPage.FillRegistrationForm(user);
+
+            loginPage.AssertMissingEmailMessage("The Email field is required.");
+            loginPage.AssertMissingPasswordMessage("The Password field is required.");
         }
 
         // TEST CREATE ARTICLE PAGE
