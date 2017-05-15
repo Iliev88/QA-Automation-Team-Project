@@ -417,5 +417,6 @@ namespace Team_Papaya
 
             createArticlePage.AssertRegisterWithValidData();
         }
+       
     }
 }
