@@ -104,13 +104,15 @@
     <Compile Include="Pages\RegistrationPage\RegistrationPage.cs" />
     <Compile Include="Pages\RegistrationPage\RegistrationPageAsserter.cs" />
     <Compile Include="Pages\RegistrationPage\RegistrationPageMap.cs" />
-    <Compile Include="SecurityTests.cs" />
+    <Compile Include="Performance.cs" />
     <Compile Include="TestClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />

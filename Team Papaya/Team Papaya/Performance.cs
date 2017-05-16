@@ -12,7 +12,7 @@ using Team_Papaya.Pages.RegistrationPage;
 
 namespace Team_Papaya
 {
-    class SecurityTests
+    class Performance
     {
         public IWebDriver driver;
 
@@ -38,7 +38,7 @@ namespace Team_Papaya
 
             for (char j = k; j < k + 10; j++)
             {
-                var user = new RegisterUser("test@abv.bg", "Test" + j, "123456", "123456");
+                var user = new RegisterUser("test@abv.bg" + j, "Test" + j, "123456", "123456");
                 registrationPage.NavigateTo();
                 registrationPage.FillRegistrationForm(user);
             }
@@ -58,7 +58,7 @@ namespace Team_Papaya
 
             var BlogCreatePage = new BlogCreate(driver);
             char a = 'a';
-            for (char j=a; j<a+10;j++)
+            for (char j = a; j < a + 10; j++)
             {
                 BlogCreatePage.NavigateTo();
                 BlogCreatePage.Title.SendKeys("abv" + j);
