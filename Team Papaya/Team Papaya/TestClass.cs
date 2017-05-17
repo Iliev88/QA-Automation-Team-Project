@@ -290,6 +290,42 @@ namespace Team_Papaya
             registrationPage.AssertEmptyFormFields("The Email field is required.\r\nThe Full Name field is required.\r\nThe Password field is required.");
         }
 
+        [Test]
+        [Property("RegistrationPage Tests", 1)]
+        public void RP_TC16_RegistrationWithMissingEmailAndFullname()
+        {
+            var registrationPage = new RegistrationPage(driver);
+            var user = new RegisterUser("", "", "12345", "12345");
+
+            registrationPage.NavigateTo();
+            registrationPage.FillRegistrationForm(user);
+
+            registrationPage.AssertEmptyFormFields("The Email field is required.\r\nThe Full Name field is required.");
+        }
+        [Test]
+        [Property("RegistrationPage Tests", 1)]
+        public void RP_TC17_RegistrationWithMissingEmailAndPasswords()
+        {
+            var registrationPage = new RegistrationPage(driver);
+            var user = new RegisterUser("", "Test", "", "");
+
+            registrationPage.NavigateTo();
+            registrationPage.FillRegistrationForm(user);
+
+            registrationPage.AssertEmptyFormFields("The Email field is required.\r\nThe Password field is required.");
+        }
+        [Test]
+        [Property("RegistrationPage Tests", 1)]
+        public void RP_TC18_RegistrationWithMissingFullnameAndPasswords()
+        {
+            var registrationPage = new RegistrationPage(driver);
+            var user = new RegisterUser("test" + DateTime.Now.Millisecond + "@test.com", "", "", "");
+
+            registrationPage.NavigateTo();
+            registrationPage.FillRegistrationForm(user);
+
+            registrationPage.AssertEmptyFormFields("The Full Name field is required.\r\nThe Password field is required.");
+        }
 
         [Test]
         [Property("Just for checking", 1)]
