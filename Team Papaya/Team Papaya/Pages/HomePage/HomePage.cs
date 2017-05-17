@@ -13,9 +13,17 @@ namespace Team_Papaya.Pages.HomePage
         {
         }
 
+        public string URL
+        {
+            get
+            {
+                return base.url + "Article/List";
+            }
+        }
+
         public void NavigateTo()
         {
-            Driver.Navigate().GoToUrl(@"http://localhost:60064/Article/List");
+            this.Driver.Navigate().GoToUrl(this.URL);
         }
     }
 }

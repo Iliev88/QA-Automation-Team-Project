@@ -14,9 +14,17 @@ namespace Team_Papaya.Pages.RegistrationPage
         {
         }
 
+        public string URL
+        {
+            get
+            {
+                return base.url + "Account/Register";
+            }
+        }
+
         public void NavigateTo()
         {
-            Driver.Navigate().GoToUrl(@"http://localhost:60064/Account/Register");
+            this.Driver.Navigate().GoToUrl(this.URL);
         }
 
         public void FillRegistrationForm(RegisterUser user)

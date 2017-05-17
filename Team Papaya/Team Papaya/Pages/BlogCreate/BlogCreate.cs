@@ -12,9 +12,18 @@ namespace Team_Papaya.Pages.BlogCreate
         public BlogCreate(IWebDriver driver) : base(driver)
         {
         }
+        public string URL
+        {
+            get
+            {
+                return base.url + "Article/Create";
+            }
+        }
+
         public void NavigateTo()
         {
-            Driver.Navigate().GoToUrl(@"http://localhost:60064/Article/Create");
+            this.Driver.Navigate().GoToUrl(this.URL);
         }
+
     }
 }

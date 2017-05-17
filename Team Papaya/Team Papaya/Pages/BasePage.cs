@@ -1,6 +1,7 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
+using System.Configuration;
 
 namespace Team_Papaya.Pages
 {
@@ -8,6 +9,7 @@ namespace Team_Papaya.Pages
     {
         private IWebDriver driver;
         private WebDriverWait wait;
+        protected string url = ConfigurationManager.AppSettings["URL"];
 
         public BasePage(IWebDriver driver)
         {

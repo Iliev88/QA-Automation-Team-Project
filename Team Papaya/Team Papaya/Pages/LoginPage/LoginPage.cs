@@ -14,9 +14,17 @@ namespace Team_Papaya.Pages.LoginPage
         {
         }
 
+        public string URL
+        {
+            get
+            {
+                return base.url + "Account/Login";
+            }
+        }
+
         public void NavigateTo()
         {
-            Driver.Navigate().GoToUrl(@"http://localhost:60064/Account/Login");
+            this.Driver.Navigate().GoToUrl(this.URL);
         }
 
         public void FillRegistrationForm(LoginUser user)
