@@ -13,5 +13,24 @@ namespace Team_Papaya.Pages.CreateArticlePage
         {
             Assert.IsTrue(true);
         }
+        public static void AssertCreateArticleWithoutContent(this CreateArticlePage page , string text)
+        {
+            Assert.AreEqual(page.Create_Article_ContentFieldRequiered_Position1.Text, text);
+        }
+        public static void AssertCreateArticleWithoutTitle(this CreateArticlePage page, string text)
+        {
+            Assert.AreEqual(page.Create_Article_TitleFieldRequiered_Position1.Text, text);
+        }
+        public static void AssertCreateArticleWithoutTitle_andContent(this CreateArticlePage page, string text , string text1)
+        {
+            Assert.AreEqual(page.Create_Article_TitleFieldRequiered_Position1.Text, text);
+            Assert.AreEqual(page.Create_Article_ContentFieldRequiered_Position2.Text, text1);
+        }
+        public static void AssertCreateArticlePageIsDisplayed(this CreateArticlePage page, string text)
+        {
+           
+            Assert.AreEqual(page.Create_ArticleText.Text, text);
+            Assert.IsTrue(page.CreateArticleButton.Displayed);
+        }
     }
 }

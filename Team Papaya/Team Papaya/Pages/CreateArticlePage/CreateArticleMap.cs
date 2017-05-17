@@ -43,5 +43,33 @@ namespace Team_Papaya.Pages.CreateArticlePage
                 return this.Driver.FindElement(By.XPath("/html/body/div[2]/div/div/form/div[4]/div/a"));
             }
         }
+        public IWebElement Create_ArticleText
+        {
+            get
+            {                                            
+                return this.Driver.FindElement(By.XPath("/html/body/div[2]/div/div/h2"));
+            }
+        }
+        public IWebElement Create_Article_ContentFieldRequiered_Position1
+        {
+            get
+            {
+                return this.Driver.FindElement(By.XPath("/html/body/div[2]/div/div/form/div[1]/ul/li"));
+            }
+        }
+        public IWebElement Create_Article_TitleFieldRequiered_Position1
+        { 
+            get
+            {                                             
+                return this.Driver.FindElement(By.XPath("/html/body/div[2]/div/div/form/div[1]/ul/li"));
+            }
+        }
+        public IWebElement Create_Article_ContentFieldRequiered_Position2
+        {
+            get
+            {
+                return this.Driver.FindElement(By.XPath("/html/body/div[2]/div/div/form/div[1]/ul/li[2]"));
+            }
+        }
     }
 }

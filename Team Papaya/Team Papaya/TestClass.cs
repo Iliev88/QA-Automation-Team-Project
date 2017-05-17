@@ -417,6 +417,90 @@ namespace Team_Papaya
 
             createArticlePage.AssertRegisterWithValidData();
         }
-       
+
+        [Test]
+        [Property("CreateArticlePage Tests", 1)]
+        public void CAP_TC2_Cancel_Empty_Article()
+        {
+            var loginPage = new LoginPage(driver);
+            var user = new LoginUser("test@abv.bg", "1234");
+
+            loginPage.NavigateTo();
+            loginPage.FillRegistrationForm(user);
+
+            var createArticlePage = new CreateArticlePage(driver);
+            createArticlePage.NavigateTo();
+            createArticlePage.Title.Clear();
+            createArticlePage.Content.Clear();
+            createArticlePage.CancelArticleButton.Click();
+            createArticlePage.AssertRegisterWithValidData();
+        }
+        [Test]
+        [Property("CreateArticlePage Tests", 1)]
+        public void CAP_TC3_Create_ArticleWithoutContent()
+        {
+            var loginPage = new LoginPage(driver);
+            var user = new LoginUser("test@abv.bg", "1234");
+
+            loginPage.NavigateTo();
+            loginPage.FillRegistrationForm(user);
+            var createArticlePage = new CreateArticlePage(driver);
+            createArticlePage.NavigateTo();
+            createArticlePage.Title.Clear();
+            createArticlePage.Title.SendKeys("Tralala");
+            createArticlePage.Content.Clear();
+            createArticlePage.CreateArticleButton.Click();
+            createArticlePage.AssertCreateArticleWithoutContent("The Content field is required.");
+        }
+        [Test]
+        [Property("CreateArticlePage Tests", 1)]
+        public void CAP_TC4_Create_ArticleWithoutTitle()
+        {
+            var loginPage = new LoginPage(driver);
+            var user = new LoginUser("test@abv.bg", "1234");
+
+            loginPage.NavigateTo();
+            loginPage.FillRegistrationForm(user);
+            var createArticlePage = new CreateArticlePage(driver);
+            createArticlePage.NavigateTo();
+            createArticlePage.Title.Clear();           
+            createArticlePage.Content.Clear();
+            createArticlePage.Content.SendKeys("tralala");
+            createArticlePage.CreateArticleButton.Click();
+            createArticlePage.AssertCreateArticleWithoutTitle("The Title field is required.");
+        }
+
+        [Test]
+        [Property("CreateArticlePage Tests", 1)]
+        public void CAP_TC5_Create_ArticleWithoutTitle_Content()
+        {
+            var loginPage = new LoginPage(driver);
+            var user = new LoginUser("test@abv.bg", "1234");
+
+            loginPage.NavigateTo();
+            loginPage.FillRegistrationForm(user);
+            var createArticlePage = new CreateArticlePage(driver);
+            createArticlePage.NavigateTo();
+            createArticlePage.Title.Clear();
+            createArticlePage.Content.Clear();           
+            createArticlePage.CreateArticleButton.Click();
+            createArticlePage.AssertCreateArticleWithoutTitle_andContent("The Title field is required.", "The Content field is required.");
+        }
+        [Test]
+        [Property("CreateArticlePage Tests", 1)]
+        public void CAP_TC6_Create_ArticlePageDisplayed()
+        {
+            var loginPage = new LoginPage(driver);
+            var user = new LoginUser("test@abv.bg", "1234");
+
+            loginPage.NavigateTo();
+            loginPage.FillRegistrationForm(user);
+            var createArticlePage = new CreateArticlePage(driver);
+            createArticlePage.NavigateTo();
+
+            createArticlePage.AssertCreateArticlePageIsDisplayed("Create Article");
+           
+        }
+
     }
 }
