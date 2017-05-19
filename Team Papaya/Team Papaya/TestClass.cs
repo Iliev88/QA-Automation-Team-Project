@@ -11,6 +11,9 @@ using Team_Papaya.Pages.CreateArticlePage;
 using Team_Papaya.Pages.HomePage;
 using Team_Papaya.Pages.LoginPage;
 using Team_Papaya.Pages.RegistrationPage;
+using OpenQA.Selenium.Interactions;
+using System.Threading;
+
 
 namespace Team_Papaya
 {
@@ -533,6 +536,28 @@ namespace Team_Papaya
             var createArticlePage = new CreateArticlePage(driver);
             createArticlePage.NavigateTo();
             createArticlePage.AssertCreateArticlePageIsDisplayed("Create Article");          
+        }
+        [Test]
+        [Property("CreateArticlePage Tests", 1)]
+        public void CAP_TC7_Create_ArticleContentResize()
+        {
+            var loginPage = new LoginPage(driver);
+            var user = new LoginUser("test@abv.bg", "1234");
+            loginPage.NavigateTo();
+            loginPage.FillRegistrationForm(user);
+            var createArticlePage = new CreateArticlePage(driver);
+            createArticlePage.NavigateTo();   
+                    
+            Actions builder = new Actions(this.driver);
+            var action = builder.MoveToElement(createArticlePage.Content)
+                                .MoveByOffset((createArticlePage.Content.Size.Width/2) - 2, (createArticlePage.Content.Size.Height/2) - 2)
+                                .ClickAndHold()
+                                .MoveByOffset(300, 300)
+                                .Release();
+
+            action.Perform();           
+            createArticlePage.AssertCreateArticlePageIsDisplayed("Create Article");
+            createArticlePage.AssertCreateArticleComtentresized(300);
         }
     }
 }

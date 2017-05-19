@@ -27,10 +27,13 @@ namespace Team_Papaya.Pages.CreateArticlePage
             Assert.AreEqual(page.Create_Article_ContentFieldRequiered_Position2.Text, text1);
         }
         public static void AssertCreateArticlePageIsDisplayed(this CreateArticlePage page, string text)
-        {
-           
+        {          
             Assert.AreEqual(page.Create_ArticleText.Text, text);
             Assert.IsTrue(page.CreateArticleButton.Displayed);
+        }
+        public static void AssertCreateArticleComtentresized(this CreateArticlePage page, int size)
+        {
+            Assert.IsTrue(size < page.Content.Size.Height);
         }
     }
 }
