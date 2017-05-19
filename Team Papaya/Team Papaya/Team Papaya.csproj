@@ -90,9 +90,6 @@
     <Compile Include="Models\LoginUser.cs" />
     <Compile Include="Models\RegisterUser.cs" />
     <Compile Include="Pages\BasePage.cs" />
-    <Compile Include="Pages\BlogCreate\BlogCreate.cs" />
-    <Compile Include="Pages\BlogCreate\BlogCreateAsserter.cs" />
-    <Compile Include="Pages\BlogCreate\BlogCreateMap.cs" />
     <Compile Include="Pages\CreateArticlePage\CreateArticlePage.cs" />
     <Compile Include="Pages\CreateArticlePage\CreateArticleAsserter.cs" />
     <Compile Include="Pages\CreateArticlePage\CreateArticleMap.cs" />
@@ -105,7 +102,6 @@
     <Compile Include="Pages\RegistrationPage\RegistrationPage.cs" />
     <Compile Include="Pages\RegistrationPage\RegistrationPageAsserter.cs" />
     <Compile Include="Pages\RegistrationPage\RegistrationPageMap.cs" />
-    <Compile Include="Performance.cs" />
     <Compile Include="TestClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

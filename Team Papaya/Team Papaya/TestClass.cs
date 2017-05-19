@@ -528,15 +528,11 @@ namespace Team_Papaya
         {
             var loginPage = new LoginPage(driver);
             var user = new LoginUser("test@abv.bg", "1234");
-
             loginPage.NavigateTo();
             loginPage.FillRegistrationForm(user);
             var createArticlePage = new CreateArticlePage(driver);
             createArticlePage.NavigateTo();
-
-            createArticlePage.AssertCreateArticlePageIsDisplayed("Create Article");
-           
+            createArticlePage.AssertCreateArticlePageIsDisplayed("Create Article");          
         }
-
     }
 }
