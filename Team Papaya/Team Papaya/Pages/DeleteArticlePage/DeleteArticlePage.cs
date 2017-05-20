@@ -15,7 +15,7 @@ namespace Team_Papaya.Pages.DeleteArticlePage
 
         public void NavigateTo()
         {
-            Driver.Navigate().GoToUrl(@"http://localhost:60064/Article/Delete");
+            Driver.Navigate().GoToUrl(@"http://localhost:60064/Article/List");
         }
     }
 }

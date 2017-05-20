@@ -14,6 +14,7 @@ using Team_Papaya.Pages.RegistrationPage;
 using OpenQA.Selenium.Interactions;
 using System.Threading;
 using Team_Papaya.Pages.EditArticlePage;
+using Team_Papaya.Pages.DeleteArticlePage;
 
 namespace Team_Papaya
 {
@@ -476,7 +477,7 @@ namespace Team_Papaya
             createArticlePage.NavigateTo();
             createArticlePage.FillCreateArticleForm(articleContent);
 
-            createArticlePage.AssertCreateArticleWithValidData();
+            createArticlePage.AssertCreateArticleWithValidData("Test Automation is the key");
         }
 
         [Test]
@@ -494,7 +495,7 @@ namespace Team_Papaya
             createArticlePage.Title.Clear();
             createArticlePage.Content.Clear();
             createArticlePage.CancelArticleButton.Click();
-            createArticlePage.AssertCreateArticleWithValidData();
+            createArticlePage.AssertCreateArticleWithValidData("Test Automation is the key");
         }
         [Test]
         [Property("CreateArticlePage Tests", 1)]
@@ -601,7 +602,7 @@ namespace Team_Papaya
             editArticlePage.OpenUserArticle.Click();
             editArticlePage.FillEditArticleForm(articleContent);
 
-            editArticlePage.AssertEditArticleWithValidData();
+            editArticlePage.AssertEditArticleWithValidData("This article has been Edited");
         }
 
         [Test]
@@ -725,7 +726,30 @@ namespace Team_Papaya
             editArticlePage.OpenUserArticle.Click();
             editArticlePage.FillEditArticleForm(articleContent);
 
-            editArticlePage.AssertEditArticleWithValidData();
+            editArticlePage.AssertEditArticleWithValidData("This article has been Edited");
         }
+
+        // TEST DELETE ARTICLE PAGE
+        [Test]
+        [Property("DeleteArticlePage Tests", 1)]
+        [Author("Petar Uzunov")]
+        public void DAP_TC1_DeleteOwnArticle()
+        {
+            var loginPage = new LoginPage(driver);
+            var user = new LoginUser("test@abv.bg", "1234");
+
+            loginPage.NavigateTo();
+            loginPage.FillRegistrationForm(user);
+
+            var deleteArticlePage = new DeleteArticlePage(driver);
+
+            deleteArticlePage.NavigateTo();
+            deleteArticlePage.OpenUserArticle.Click();
+            deleteArticlePage.GoToDeleteArticlePageButton.Click();
+            deleteArticlePage.DeleteArticleButton.Click();
+
+            deleteArticlePage.AssertUserOwnArticleIsDelted();
+        }
+
     }
 }

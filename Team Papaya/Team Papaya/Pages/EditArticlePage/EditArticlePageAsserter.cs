@@ -9,9 +9,10 @@ namespace Team_Papaya.Pages.EditArticlePage
 {
     public static class EditArticlePageAsserter
     {
-        public static void AssertEditArticleWithValidData(this EditArticlePage page)
+        public static void AssertEditArticleWithValidData(this EditArticlePage page, string text)
         {
-            Assert.IsTrue(true);
+            Assert.IsTrue(page.ArticleIsUpdated.Displayed);
+            Assert.AreEqual(text, page.ArticleIsUpdated.Text);
         }
 
         public static void AssertEditArticleWithInvalidTitleMinimunLenghtMessage(this EditArticlePage page, string text)

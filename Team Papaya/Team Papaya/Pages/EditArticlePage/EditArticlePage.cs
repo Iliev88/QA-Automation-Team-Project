@@ -17,6 +17,7 @@ namespace Team_Papaya.Pages.EditArticlePage
         public void NavigateTo()
         {
             Driver.Navigate().GoToUrl(@"http://localhost:60064/Article/List");
+
         }
 
         public void FillEditArticleForm(EditArticleContent articleContent)
@@ -30,6 +31,7 @@ namespace Team_Papaya.Pages.EditArticlePage
         private void Type(IWebElement element, string text)
         {
             element.Click();
+            element.Clear();
             element.SendKeys(text);
         }
     }

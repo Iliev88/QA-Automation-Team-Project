@@ -92,5 +92,14 @@ namespace Team_Papaya.Pages.EditArticlePage
                 return this.Driver.FindElement(By.XPath("/html/body/div[2]/div/div/form/div[1]/ul/li"));
             }
         }
+
+        public IWebElement ArticleIsUpdated
+        {
+            get
+            {
+                this.Wait.Until(ExpectedConditions.ElementExists(By.LinkText("This article has been Edited")));
+                return this.Driver.FindElement(By.LinkText("This article has been Edited"));
+            }
+        }
     }
 }

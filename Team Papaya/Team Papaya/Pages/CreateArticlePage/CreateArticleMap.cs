@@ -43,6 +43,16 @@ namespace Team_Papaya.Pages.CreateArticlePage
                 return this.Driver.FindElement(By.XPath("/html/body/div[2]/div/div/form/div[4]/div/a"));
             }
         }
+
+        public IWebElement ArticleIsCreated
+        {
+            get
+            {
+                this.Wait.Until(ExpectedConditions.ElementExists(By.LinkText("Test Automation is the key")));
+                return this.Driver.FindElement(By.LinkText("Test Automation is the key"));
+            }
+        }
+
         public IWebElement Create_ArticleText
         {
             get
