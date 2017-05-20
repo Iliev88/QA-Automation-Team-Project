@@ -13,7 +13,7 @@ using Team_Papaya.Pages.LoginPage;
 using Team_Papaya.Pages.RegistrationPage;
 using OpenQA.Selenium.Interactions;
 using System.Threading;
-
+using Team_Papaya.Pages.EditArticlePage;
 
 namespace Team_Papaya
 {
@@ -469,7 +469,7 @@ namespace Team_Papaya
             createArticlePage.NavigateTo();
             createArticlePage.FillRegistrationForm(articleContent);
 
-            createArticlePage.AssertRegisterWithValidData();
+            createArticlePage.AssertCreateArticleWithValidData();
         }
 
         [Test]
@@ -487,7 +487,7 @@ namespace Team_Papaya
             createArticlePage.Title.Clear();
             createArticlePage.Content.Clear();
             createArticlePage.CancelArticleButton.Click();
-            createArticlePage.AssertRegisterWithValidData();
+            createArticlePage.AssertCreateArticleWithValidData();
         }
         [Test]
         [Property("CreateArticlePage Tests", 1)]
@@ -573,6 +573,26 @@ namespace Team_Papaya
             action.Perform();           
             createArticlePage.AssertCreateArticlePageIsDisplayed("Create Article");
             createArticlePage.AssertCreateArticleComtentresized(300);
+        }
+
+        // TEST EDIT ARTICLE PAGE
+        [Test]
+        [Property("EditArticlePage Tests", 1)]
+        public void EAP_TC1_EditArticleWithValidData()
+        {
+            var loginPage = new LoginPage(driver);
+            var user = new LoginUser("test@abv.bg", "1234");
+
+            loginPage.NavigateTo();
+            loginPage.FillRegistrationForm(user);
+
+            var editArticlePage = new EditArticlePage(driver);
+            var articleContent = new EditArticleContent("Test Automation is the key", "Traditional quality assurance has become a bottleneck in the development process and the advancement of test automation. Innovative development teams ...");
+
+            editArticlePage.NavigateTo();
+            editArticlePage.FillRegistrationForm(articleContent);
+
+            editArticlePage.AssertEditArticleWithValidData();
         }
     }
 }

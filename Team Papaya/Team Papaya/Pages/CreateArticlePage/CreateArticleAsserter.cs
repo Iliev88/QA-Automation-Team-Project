@@ -9,7 +9,7 @@ namespace Team_Papaya.Pages.CreateArticlePage
 {
     public static class CreateArticleAsserter
     {
-        public static void AssertRegisterWithValidData(this CreateArticlePage page)
+        public static void AssertCreateArticleWithValidData(this CreateArticlePage page)
         {
             Assert.IsTrue(true);
         }
