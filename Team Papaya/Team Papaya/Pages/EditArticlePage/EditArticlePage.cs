@@ -16,11 +16,12 @@ namespace Team_Papaya.Pages.EditArticlePage
 
         public void NavigateTo()
         {
-            Driver.Navigate().GoToUrl(@"http://localhost:60064/Article/Edit");
+            Driver.Navigate().GoToUrl(@"http://localhost:60064/Article/List");
         }
 
-        public void FillRegistrationForm(EditArticleContent articleContent)
+        public void FillEditArticleForm(EditArticleContent articleContent)
         {
+            GoToEditArticlePageButton.Click();
             Type(Title, articleContent.Title);
             Type(Content, articleContent.Content);
             EditArticleButton.Click();

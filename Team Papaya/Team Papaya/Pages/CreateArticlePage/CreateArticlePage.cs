@@ -19,7 +19,7 @@ namespace Team_Papaya.Pages.CreateArticlePage
             Driver.Navigate().GoToUrl(@"http://localhost:60064/Article/Create");
         }
 
-        public void FillRegistrationForm(CreateArticleContent articleContent)
+        public void FillCreateArticleForm(CreateArticleContent articleContent)
         {
             Type(Title, articleContent.Title);
             Type(Content, articleContent.Content);

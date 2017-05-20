@@ -10,6 +10,23 @@ namespace Team_Papaya.Pages.EditArticlePage
 {
     public partial class EditArticlePage
     {
+        public IWebElement OpenUserArticle
+        {
+            get
+            {
+                this.Wait.Until(ExpectedConditions.ElementExists(By.LinkText("Test Automation is the key")));
+                return this.Driver.FindElement(By.LinkText("Test Automation is the key"));
+            }
+        }
+
+        public IWebElement GoToEditArticlePageButton
+        {
+            get
+            {
+                return this.Driver.FindElement(By.XPath("/html/body/div[2]/div/article/footer/a[1]"));
+            }
+        }
+
         public IWebElement Title
         {
             get
@@ -41,6 +58,38 @@ namespace Team_Papaya.Pages.EditArticlePage
             get
             {
                 return this.Driver.FindElement(By.XPath("/html/body/div[2]/div/div/form/div[4]/div/a"));
+            }
+        }
+
+        public IWebElement ErrorMessageForTooShortTitle
+        {
+            get
+            {
+                return this.Driver.FindElement(By.XPath("/html/body/div[2]/div/div/form/div[1]/ul/li"));
+            }
+        }
+
+        public IWebElement ErrorMessageForTooLongTitle
+        {
+            get
+            {
+                return this.Driver.FindElement(By.XPath("/html/body/div[2]/div/div/form/div[1]/ul/li"));
+            }
+        }
+
+        public IWebElement ErrorMessageForTooShortContent
+        {
+            get
+            {
+                return this.Driver.FindElement(By.XPath("/html/body/div[2]/div/div/form/div[1]/ul/li"));
+            }
+        }
+
+        public IWebElement ErrorMessageForTooLongContent
+        {
+            get
+            {
+                return this.Driver.FindElement(By.XPath("/html/body/div[2]/div/div/form/div[1]/ul/li"));
             }
         }
     }
