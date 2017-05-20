@@ -59,7 +59,7 @@ namespace Team_Papaya.Pages.RegistrationPage
             }
         }
 
-        public IWebElement LogOff
+        public IWebElement LogOffButton
         {
             get
             {

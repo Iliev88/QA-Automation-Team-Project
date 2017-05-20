@@ -11,7 +11,7 @@ namespace Team_Papaya.Pages.RegistrationPage
     {
         public static void AssertRegisterWithValidData(this RegistrationPage page)
         {
-            Assert.IsTrue(page.LogOff.Displayed);
+            Assert.IsTrue(page.LogOffButton.Displayed);
         }
 
         public static void AssertMissingEmailMessage(this RegistrationPage page, string text)

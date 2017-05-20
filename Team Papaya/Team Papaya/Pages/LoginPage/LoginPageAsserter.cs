@@ -11,7 +11,7 @@ namespace Team_Papaya.Pages.LoginPage
     {
         public static void AssertLoginWithValidData(this LoginPage page)
         {
-            Assert.IsTrue(page.LogOff.Displayed);
+            Assert.IsTrue(page.LogOffButton.Displayed);
         }
 
         public static void AssertMissingEmailMessage(this LoginPage page, string text)
@@ -42,6 +42,12 @@ namespace Team_Papaya.Pages.LoginPage
         {
             Assert.IsTrue(page.ErrorMessageForWrongPassword.Displayed);
             Assert.AreEqual(text, page.ErrorMessageForWrongPassword.Text);
+        }
+
+        public static void AssertUserRedirectedToHomePage(this LoginPage page, string text)
+        {
+            Assert.IsTrue(page.HomePageLoginButtonVisible.Displayed);
+            Assert.AreEqual(text, page.HomePageLoginButtonVisible.Text);
         }
     }
 }

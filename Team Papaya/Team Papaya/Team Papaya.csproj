@@ -93,6 +93,12 @@
     <Compile Include="Pages\CreateArticlePage\CreateArticlePage.cs" />
     <Compile Include="Pages\CreateArticlePage\CreateArticleAsserter.cs" />
     <Compile Include="Pages\CreateArticlePage\CreateArticleMap.cs" />
+    <Compile Include="Pages\DeleteArticlePage\DeleteArticlePage.cs" />
+    <Compile Include="Pages\DeleteArticlePage\DeleteArticlePageAsserter.cs" />
+    <Compile Include="Pages\DeleteArticlePage\DeleteArticlePageMap.cs" />
+    <Compile Include="Pages\EditArticlePage\EditArticlePage.cs" />
+    <Compile Include="Pages\EditArticlePage\EditArticlePageAsserter.cs" />
+    <Compile Include="Pages\EditArticlePage\EditArticlePagMap.cs" />
     <Compile Include="Pages\HomePage\HomePage.cs" />
     <Compile Include="Pages\HomePage\HomePageAsserter.cs" />
     <Compile Include="Pages\HomePage\HomePageMap.cs" />

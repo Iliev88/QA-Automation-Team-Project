@@ -32,15 +32,22 @@ namespace Team_Papaya.Pages.LoginPage
             get
             {
                 return this.Driver.FindElement(By.XPath("/html/body/div[2]/div/div/form/div[4]/div/input"));
-
             }
         }
 
-        public IWebElement LogOff
+        public IWebElement LogOffButton
         {
             get
             {
-                return this.Driver.FindElement(By.Id("logoutForm"));
+                return this.Driver.FindElement(By.XPath("//*[@id=\"logoutForm\"]/ul/li[3]/a"));
+            }
+        }
+
+        public IWebElement HomePageLoginButtonVisible
+        {
+            get
+            {
+                return this.Driver.FindElement(By.Id("loginLink"));
             }
         }
 

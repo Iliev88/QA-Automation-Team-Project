@@ -266,7 +266,6 @@ namespace Team_Papaya
             //registrationPage.AssertUnmatchedPasswordMessage("The password and confirmation password do not match.");
         }
 
-
         [Test]
         [Property("RegistrationPage Tests", 1)]
         public void RP_TC14_RegistrationWithDifferentPasswordAndConfirmPassword()
@@ -305,6 +304,7 @@ namespace Team_Papaya
 
             registrationPage.AssertEmptyFormFields("The Email field is required.\r\nThe Full Name field is required.");
         }
+
         [Test]
         [Property("RegistrationPage Tests", 1)]
         public void RP_TC17_RegistrationWithMissingEmailAndPasswords()
@@ -317,6 +317,7 @@ namespace Team_Papaya
 
             registrationPage.AssertEmptyFormFields("The Email field is required.\r\nThe Password field is required.");
         }
+
         [Test]
         [Property("RegistrationPage Tests", 1)]
         public void RP_TC18_RegistrationWithMissingFullnameAndPasswords()
@@ -435,6 +436,20 @@ namespace Team_Papaya
 
             loginPage.AssertMissingEmailMessage("The Email field is required.");
             loginPage.AssertMissingPasswordMessage("The Password field is required.");
+        }
+
+        [Test]
+        [Property("LoginPage Tests", 1)]
+        public void LP_TC6_LogiOff()
+        {
+            var loginPage = new LoginPage(driver);
+            var user = new LoginUser("test@abv.bg", "1234");
+
+            loginPage.NavigateTo();
+            loginPage.FillRegistrationForm(user);
+            loginPage.LogOffButton.Click();
+
+            loginPage.AssertUserRedirectedToHomePage("Log in");
         }
 
         // TEST CREATE ARTICLE PAGE
