@@ -462,7 +462,7 @@ namespace Team_Papaya
         // TEST CREATE ARTICLE PAGE
         [Test]
         [Property("CreateArticlePage Tests", 1)]
-        [Author("Petar Uzunov")]
+        [Author("Todor Peshin")]
         public void CAP_TC1_CreateArticleWithValidData()
         {
             var loginPage = new LoginPage(driver);
@@ -482,6 +482,7 @@ namespace Team_Papaya
 
         [Test]
         [Property("CreateArticlePage Tests", 1)]
+        [Author("Todor Peshin")]
         public void CAP_TC2_Cancel_Empty_Article()
         {
             var loginPage = new LoginPage(driver);
@@ -499,6 +500,7 @@ namespace Team_Papaya
         }
         [Test]
         [Property("CreateArticlePage Tests", 1)]
+        [Author("Todor Peshin")]
         public void CAP_TC3_Create_ArticleWithoutContent()
         {
             var loginPage = new LoginPage(driver);
@@ -516,6 +518,7 @@ namespace Team_Papaya
         }
         [Test]
         [Property("CreateArticlePage Tests", 1)]
+        [Author("Todor Peshin")]
         public void CAP_TC4_Create_ArticleWithoutTitle()
         {
             var loginPage = new LoginPage(driver);
@@ -534,6 +537,7 @@ namespace Team_Papaya
 
         [Test]
         [Property("CreateArticlePage Tests", 1)]
+        [Author("Todor Peshin")]
         public void CAP_TC5_Create_ArticleWithoutTitle_Content()
         {
             var loginPage = new LoginPage(driver);
@@ -550,6 +554,7 @@ namespace Team_Papaya
         }
         [Test]
         [Property("CreateArticlePage Tests", 1)]
+        [Author("Todor Peshin")]
         public void CAP_TC6_Create_ArticlePageDisplayed()
         {
             var loginPage = new LoginPage(driver);
@@ -562,6 +567,7 @@ namespace Team_Papaya
         }
         [Test]
         [Property("CreateArticlePage Tests", 1)]
+        [Author("Todor Peshin")]
         public void CAP_TC7_Create_ArticleContentResize()
         {
             var loginPage = new LoginPage(driver);
