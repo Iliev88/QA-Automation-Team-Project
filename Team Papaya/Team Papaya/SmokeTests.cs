@@ -139,12 +139,15 @@ namespace Team_Papaya
 
             loginPage.NavigateTo();
             loginPage.FillLoginForm(user);
+
             var createArticlePage = new CreateArticlePage(driver);
+
             createArticlePage.NavigateTo();
             createArticlePage.Title.Clear();
             createArticlePage.Title.SendKeys("Tralala");
             createArticlePage.Content.Clear();
             createArticlePage.CreateArticleButton.Click();
+
             createArticlePage.AssertCreateArticleWithoutContent("The Content field is required.");
         }
     }
