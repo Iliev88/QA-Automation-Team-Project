@@ -24,7 +24,7 @@ namespace Team_Papaya.Pages.LoginPage
 
         public void NavigateTo()
         {
-            this.Driver.Navigate().GoToUrl(this.URL);
+            this.Driver.Navigate().GoToUrl("http://localhost:60064/account/login");
         }
 
         public void FillLoginForm(LoginUser user)

@@ -39,7 +39,7 @@ namespace Team_Papaya
         }
 
         [Test]
-        [Property("Smoke Tests", 1)]
+        [Property("Sanity Tests", 1)]
         public void HomePageHeaderTest()
         {
             var homePage = new HomePage(driver);
@@ -50,7 +50,7 @@ namespace Team_Papaya
         }
 
         [Test]
-        [Property("Smoke Tests", 1)]
+        [Property("Sanity Tests", 1)]
         public void RP_TC1_RegistrationWithValidData()
         {
             var registrationPage = new RegistrationPage(driver);
@@ -63,7 +63,7 @@ namespace Team_Papaya
         }
 
         [Test]
-        [Property("Smoke Tests", 1)]
+        [Property("Sanity Tests", 1)]
         public void RP_TC2_RegistrationWithInvalidEmail()
         {
             var registrationPage = new RegistrationPage(driver);
@@ -77,7 +77,7 @@ namespace Team_Papaya
 
         // FAIL
         [Test]
-        [Property("Smoke Tests", 1)]
+        [Property("Sanity Tests", 1)]
         public void RP_TC3_RegistrationWithDuplicatedEmail()
         {
             var registrationPage = new RegistrationPage(driver);
@@ -90,7 +90,7 @@ namespace Team_Papaya
         }
 
         [Test]
-        [Property("Smoke Tests", 1)]
+        [Property("Sanity Tests", 1)]
         [Author("Petar Uzunov")]
         public void LP_TC1_LoginWithValidData()
         {
@@ -104,7 +104,7 @@ namespace Team_Papaya
         }
 
         [Test]
-        [Property("Smoke Tests", 1)]
+        [Property("Sanity Tests", 1)]
         [Author("Petar Uzunov")]
         public void LP_TC2_LoginWithInvalidEmailFormat()
         {
@@ -118,7 +118,7 @@ namespace Team_Papaya
         }
 
         [Test]
-        [Property("Smoke Tests", 1)]
+        [Property("Sanity Tests", 1)]
         [Author("Todor Peshin")]
         public void CAP_TC1_CreateArticleWithValidData()
         {
@@ -138,7 +138,7 @@ namespace Team_Papaya
         }
 
         [Test]
-        [Property("Smoke Tests", 1)]
+        [Property("Sanity Tests", 1)]
         [Author("Todor Peshin")]
         public void CAP_TC3_Create_ArticleWithoutContent()
         {
