@@ -27,7 +27,7 @@ namespace Team_Papaya.Pages.LoginPage
             this.Driver.Navigate().GoToUrl(this.URL);
         }
 
-        public void FillRegistrationForm(LoginUser user)
+        public void FillLoginForm(LoginUser user)
         {
             Type(Email, user.Email);
             Type(Password, user.Password);
