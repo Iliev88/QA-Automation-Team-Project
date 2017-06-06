@@ -99,8 +99,7 @@ namespace Team_Papaya
         public void RP_TC1_RegistrationWithValidData()
         {
             var registrationPage = new RegistrationPage(driver);
-            var user = new RegisterUser("test@abv.bg", "Test", "123456", "123456");
-            //var user = new RegisterUser("test" + new Random().Next(100000, 100000000) + "@abv.bg", "Test", "1234", "1234");
+            var user = new RegisterUser("test" + new Random().Next(100000, 100000000) + "@abv.bg", "Test" + new Random().Next(100000, 100000000), "1234", "1234");
 
             registrationPage.NavigateTo();
             registrationPage.FillRegistrationForm(user);
