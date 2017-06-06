@@ -1,10 +1,5 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Team_Papaya.Models;
 using Team_Papaya.Pages.DeleteArticlePage;
 using Team_Papaya.Pages.LoginPage;

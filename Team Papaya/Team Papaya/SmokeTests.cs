@@ -1,20 +1,12 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Team_Papaya.Models;
 using Team_Papaya.Pages.CreateArticlePage;
 using Team_Papaya.Pages.HomePage;
 using Team_Papaya.Pages.LoginPage;
 using Team_Papaya.Pages.RegistrationPage;
-using OpenQA.Selenium.Interactions;
-using System.Threading;
-using Team_Papaya.Pages.EditArticlePage;
-using Team_Papaya.Pages.DeleteArticlePage;
+
 
 namespace Team_Papaya
 {

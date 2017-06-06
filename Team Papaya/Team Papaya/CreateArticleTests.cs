@@ -1,11 +1,6 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Team_Papaya.Models;
 using Team_Papaya.Pages.CreateArticlePage;
 using Team_Papaya.Pages.LoginPage;
