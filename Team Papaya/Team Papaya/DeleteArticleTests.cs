@@ -17,6 +17,12 @@ namespace Team_Papaya
             driver = BrowserHost.Instance.Application.Browser;
 
             driver.Manage().Window.Maximize();
+            
+            var loginPage = new LoginPage(driver);
+            var user = new LoginUser("test@abv.bg", "1234");
+
+            loginPage.NavigateTo();
+            loginPage.FillLoginForm(user);
         }
 
         [TearDown]
@@ -26,18 +32,12 @@ namespace Team_Papaya
             //driver.Quit();
         }
 
-        // TEST DELETE ARTICLE PAGE
+        
         [Test]
         [Property("DeleteArticlePage Tests", 1)]
         [Author("Petar Uzunov")]
         public void DAP_TC1_DeleteOwnArticle()
         {
-            var loginPage = new LoginPage(driver);
-            var user = new LoginUser("test@abv.bg", "1234");
-
-            loginPage.NavigateTo();
-            loginPage.FillLoginForm(user);
-
             var deleteArticlePage = new DeleteArticlePage(driver);
 
             deleteArticlePage.NavigateTo();
