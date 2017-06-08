@@ -14,7 +14,7 @@ namespace Team_Papaya
     public class SmokeTests
     {
         public IWebDriver driver;
-
+        
         [SetUp]
         public void Initialize()
         {
