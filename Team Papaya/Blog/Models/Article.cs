@@ -5,6 +5,7 @@ namespace Blog.Models
 {
     public class Article
     {
+        // simple comment to trigger the build
         [Key]
         public int Id { get; set; }
 
