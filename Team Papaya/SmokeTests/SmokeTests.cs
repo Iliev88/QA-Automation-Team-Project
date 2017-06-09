@@ -32,6 +32,7 @@ namespace Team_Papaya
 
         [Test]
         [Property("Smoke Tests", 1)]
+        [Author("Hristo Bahnev")]
         public void HomePageHeaderTest()
         {
             var homePage = new HomePage(driver);
@@ -43,6 +44,7 @@ namespace Team_Papaya
 
         [Test]
         [Property("Smoke Tests", 1)]
+        [Author("Iliya Iliev")]
         public void RP_TC1_RegistrationWithValidData()
         {
             var registrationPage = new RegistrationPage(driver);
@@ -56,6 +58,7 @@ namespace Team_Papaya
 
         [Test]
         [Property("Smoke Tests", 1)]
+        [Author("Iliya Iliev")]
         public void RP_TC2_RegistrationWithInvalidEmail()
         {
             var registrationPage = new RegistrationPage(driver);
@@ -70,6 +73,7 @@ namespace Team_Papaya
         // FAIL
         [Test]
         [Property("Smoke Tests", 1)]
+        [Author("Iliya Iliev")]
         public void RP_TC3_RegistrationWithDuplicatedEmail()
         {
             var registrationPage = new RegistrationPage(driver);

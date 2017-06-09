@@ -26,6 +26,7 @@ namespace Team_Papaya
 
         [Test]
         [Property("HomePage Tests", 1)]
+        [Author("Hristo Bahnev")]
         public void HomePageHeaderTest()
         {
             var homePage = new HomePage(driver);
@@ -37,6 +38,7 @@ namespace Team_Papaya
 
         [Test]
         [Property("HomePage Tests", 1)]
+        [Author("Iliya Iliev")]
         public void HomePageFooterTest()
         {
             var homePage = new HomePage(driver);
@@ -48,6 +50,7 @@ namespace Team_Papaya
 
         [Test]
         [Property("HomePage Tests", 1)]
+        [Author("Iliya Iliev")]
         public void HomePageRegisterButtonTest()
         {
             var homePage = new HomePage(driver);
@@ -59,6 +62,7 @@ namespace Team_Papaya
 
         [Test]
         [Property("HomePage Tests", 1)]
+        [Author("Hristo Bahnev")]
         public void HomePageLoginButtonTest()
         {
             var homePage = new HomePage(driver);

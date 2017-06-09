@@ -28,6 +28,7 @@ namespace Team_Papaya
 
         [Test]
         [Property("RegistrationPage Tests", 1)]
+        [Author("Hristo Bahnev")]
         public void RP_TC0_RegisterButtonTest()
         {
             var registrationPage = new RegistrationPage(driver);
@@ -39,6 +40,7 @@ namespace Team_Papaya
 
         [Test]
         [Property("RegistrationPage Tests", 1)]
+        [Author("Iliya Iliev")]
         public void RP_TC1_RegistrationWithValidData()
         {
             var registrationPage = new RegistrationPage(driver);
@@ -52,6 +54,7 @@ namespace Team_Papaya
 
         [Test]
         [Property("RegistrationPage Tests", 1)]
+        [Author("Iliya Iliev")]
         public void RP_TC2_RegistrationWithInvalidEmail()
         {
             var registrationPage = new RegistrationPage(driver);
@@ -66,6 +69,7 @@ namespace Team_Papaya
         // FAIL
         [Test]
         [Property("RegistrationPage Tests", 1)]
+        [Author("Iliya Iliev")]
         public void RP_TC3_RegistrationWithDuplicatedEmail()
         {
             var registrationPage = new RegistrationPage(driver);
@@ -79,6 +83,7 @@ namespace Team_Papaya
 
         [Test]
         [Property("RegistrationPage Tests", 1)]
+        [Author("Iliya Iliev")]
         public void RP_TC4_RegistrationWithEmptyEmailField()
         {
             var registrationPage = new RegistrationPage(driver);
@@ -92,6 +97,7 @@ namespace Team_Papaya
 
         [Test]
         [Property("RegistrationPage Tests", 1)]
+        [Author("Iliya Iliev")]
         public void RP_TC5_RegistrationWithNameLessThanThreeChars()
         {
             var registrationPage = new RegistrationPage(driver);
@@ -105,6 +111,7 @@ namespace Team_Papaya
 
         [Test]
         [Property("RegistrationPage Tests", 1)]
+        [Author("Iliya Iliev")]
         public void RP_TC6_RegistrationWithTooLongFullName()
         {
             var registrationPage = new RegistrationPage(driver);
@@ -115,22 +122,22 @@ namespace Team_Papaya
 
             registrationPage.AssertTooLongFullNameMessage("The field Full Name must be a string with a maximum length of 50.");
         }
-
         [Test]
         [Property("RegistrationPage Tests", 1)]
-        public void RP_TC7_RegistrationWithNameLessThanThreeChars()
+        [Author("Hristo Bahnev")]
+        public void RP_TC7_RegistrationWithMissingFullnameAndPasswords()
         {
             var registrationPage = new RegistrationPage(driver);
-            var user = new RegisterUser("test" + DateTime.Now.Millisecond + "@test.com", "1van Ivanov", "123456", "123456");
+            var user = new RegisterUser("test" + DateTime.Now.Millisecond + "@test.com", "", "", "");
 
             registrationPage.NavigateTo();
             registrationPage.FillRegistrationForm(user);
 
-            registrationPage.AssertTooLongFullNameMessage("The field Full Name must start with small or capital letter.");
+            registrationPage.AssertEmptyFormFields("The Full Name field is required.\r\nThe Password field is required.");
         }
-
         [Test]
         [Property("RegistrationPage Tests", 1)]
+        [Author("Iliya Iliev")]
         public void RP_TC8_RegistrationWithNameStartingWithNumber()
         {
             var registrationPage = new RegistrationPage(driver);
@@ -144,6 +151,7 @@ namespace Team_Papaya
 
         [Test]
         [Property("RegistrationPage Tests", 1)]
+        [Author("Iliya Iliev")]
         public void RP_TC9_RegistrationWithDuplicateFullName()
         {
             var registrationPage = new RegistrationPage(driver);
@@ -157,7 +165,8 @@ namespace Team_Papaya
 
         [Test]
         [Property("RegistrationPage Tests", 1)]
-        public void RP_TC10_RegistrationWithShrotPassword()
+        [Author("Iliya Iliev")]
+        public void RP_TC10_RegistrationWithShortPassword()
         {
             var registrationPage = new RegistrationPage(driver);
             var user = new RegisterUser("test" + DateTime.Now.Millisecond + "@test.com", "Ivan Ivanov", "12345", "12345");
@@ -171,6 +180,7 @@ namespace Team_Papaya
 
         [Test]
         [Property("RegistrationPage Tests", 1)]
+        [Author("Iliya Iliev")]
         public void RP_TC11_RegistrationWithTooLongPassword()
         {
             var registrationPage = new RegistrationPage(driver);
@@ -184,6 +194,7 @@ namespace Team_Papaya
 
         [Test]
         [Property("RegistrationPage Tests", 1)]
+        [Author("Hristo Bahnev")]
         public void RP_TC12_RegistrationWithMissingPassword()
         {
             var registrationPage = new RegistrationPage(driver);
@@ -197,6 +208,7 @@ namespace Team_Papaya
 
         [Test]
         [Property("RegistrationPage Tests", 1)]
+        [Author("Hristo Bahnev")]
         public void RP_TC13_RegistrationWithMissingPasswordANdConfirmPassword()
         {
             var registrationPage = new RegistrationPage(driver);
@@ -206,11 +218,12 @@ namespace Team_Papaya
             registrationPage.FillRegistrationForm(user);
 
             registrationPage.AssertMissingPasswordMessage("The Password field is required.");
-            //registrationPage.AssertUnmatchedPasswordMessage("The password and confirmation password do not match.");
+
         }
 
         [Test]
         [Property("RegistrationPage Tests", 1)]
+        [Author("Hristo Bahnev")]
         public void RP_TC14_RegistrationWithDifferentPasswordAndConfirmPassword()
         {
             var registrationPage = new RegistrationPage(driver);
@@ -224,6 +237,7 @@ namespace Team_Papaya
 
         [Test]
         [Property("RegistrationPage Tests", 1)]
+        [Author("Hristo Bahnev")]
         public void RP_TC15_RegistrationWithEmptyForm()
         {
             var registrationPage = new RegistrationPage(driver);
@@ -237,6 +251,7 @@ namespace Team_Papaya
 
         [Test]
         [Property("RegistrationPage Tests", 1)]
+        [Author("Hristo Bahnev")]
         public void RP_TC16_RegistrationWithMissingEmailAndFullname()
         {
             var registrationPage = new RegistrationPage(driver);
@@ -250,6 +265,7 @@ namespace Team_Papaya
 
         [Test]
         [Property("RegistrationPage Tests", 1)]
+        [Author("Hristo Bahnev")]
         public void RP_TC17_RegistrationWithMissingEmailAndPasswords()
         {
             var registrationPage = new RegistrationPage(driver);
@@ -261,56 +277,6 @@ namespace Team_Papaya
             registrationPage.AssertEmptyFormFields("The Email field is required.\r\nThe Password field is required.");
         }
 
-        [Test]
-        [Property("RegistrationPage Tests", 1)]
-        public void RP_TC18_RegistrationWithMissingFullnameAndPasswords()
-        {
-            var registrationPage = new RegistrationPage(driver);
-            var user = new RegisterUser("test" + DateTime.Now.Millisecond + "@test.com", "", "", "");
 
-            registrationPage.NavigateTo();
-            registrationPage.FillRegistrationForm(user);
-
-            registrationPage.AssertEmptyFormFields("The Full Name field is required.\r\nThe Password field is required.");
-        }
-
-        [Test]
-        [Property("RegistrationPage Tests", 1)]
-        public void RegisterWithMissingEmail()
-        {
-            var registrationPage = new RegistrationPage(driver);
-            var user = new RegisterUser("", "Test", "123456", "123456");
-
-            registrationPage.NavigateTo();
-            registrationPage.FillRegistrationForm(user);
-
-            registrationPage.AssertMissingEmailMessage("The Email field is required.");
-        }
-
-        [Test]
-        [Property("RegistrationPage Tests", 1)]
-        public void RegisterWithMissingEmailSecond()
-        {
-            var registrationPage = new RegistrationPage(driver);
-            var user = new RegisterUser("", "TestTest", "123456", "123456");
-
-            registrationPage.NavigateTo();
-            registrationPage.FillRegistrationForm(user);
-
-            registrationPage.AssertMissingEmailMessage("The Email field is required.");
-        }
-
-        [Test]
-        [Property("RegistrationPage Tests", 1)]
-        public void RegisterWithMissingEmailThird()
-        {
-            var registrationPage = new RegistrationPage(driver);
-            var user = new RegisterUser("Test GitHub for Desctop", "TestTC", "testTC", "testTC");
-
-            registrationPage.NavigateTo();
-            registrationPage.FillRegistrationForm(user);
-
-            registrationPage.AssertInvalidEmailMessage("The Email field is not a valid e-mail address.");
-        }
     }
 }
