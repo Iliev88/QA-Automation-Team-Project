@@ -32,8 +32,7 @@ namespace Team_Papaya
             // This is for TeamCity to build...
             //driver.Quit();
         }
-
-        // TEST CREATE ARTICLE PAGE
+        
         [Test]
         [Property("CreateArticlePage Tests", 1)]
         [Author("Todor Peshin")]
